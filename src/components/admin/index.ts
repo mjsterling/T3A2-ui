@@ -4,10 +4,12 @@ import Login from "./Login";
 import Requests from "./Requests";
 import Room from "./Room";
 
-export default {
+const admin = {
   Bookings,
   Home,
   Login,
   Requests,
   Room,
 };
+
+export default admin;

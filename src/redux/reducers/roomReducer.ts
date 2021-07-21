@@ -1,8 +1,10 @@
-export default (state = {}, action) => {
+import { Action } from "redux";
+
+const reducer = (state = {}, action: Action) => {
   switch (action.type) {
-    case "FETCHED_ROOMS":
-      return state + action.payload;
     default:
       return state;
   }
 };
+
+export default reducer;

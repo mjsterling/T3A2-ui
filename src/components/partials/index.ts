@@ -12,7 +12,7 @@ import PageHeader from "./PageHeader";
 import RoomCard from "./RoomCard";
 import SocialLinks from "./SocialLinks";
 
-export default {
+const _ = {
   BackButton,
   BookingPopup,
   Calendar,
@@ -27,3 +27,5 @@ export default {
   RoomCard,
   SocialLinks,
 };
+
+export default _;

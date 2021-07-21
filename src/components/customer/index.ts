@@ -2,8 +2,10 @@ import Home from "./Home";
 import Book from "./Book";
 import About from "./About";
 
-export default {
+const customer = {
   Home,
   Book,
   About,
 };
+
+export default customer;

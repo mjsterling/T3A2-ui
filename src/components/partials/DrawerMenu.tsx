@@ -4,7 +4,6 @@ import {
   ListItemText,
   SwipeableDrawer,
   Divider,
-  Typography,
 } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";

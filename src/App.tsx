@@ -1,14 +1,13 @@
 import { Grid } from "@material-ui/core";
 import { Route } from "react-router-dom";
 import Customer from "./components/customer";
-import _ from "./components/partials";
 import Admin from "./components/admin";
+import _ from "./components/partials";
 
 export default function App() {
   <div>
     <_.DrawerMenu />
     <Grid container spacing={2} direction="column" alignItems="center">
-      <Grid item></Grid>
       <Grid container spacing={1} alignItems="center" justify="space-evenly">
         <_.MenuButton />
         <_.PageHeader />
