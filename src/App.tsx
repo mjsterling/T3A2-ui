@@ -5,20 +5,22 @@ import Admin from "./components/admin";
 import _ from "./components/partials";
 
 export default function App() {
-  <div>
-    <_.DrawerMenu />
-    <Grid container spacing={2} direction="column" alignItems="center">
-      <Grid container spacing={1} alignItems="center" justify="space-evenly">
-        <_.MenuButton />
-        <_.PageHeader />
-        <_.BackButton />
+  return (
+    <div>
+      <_.DrawerMenu />
+      <Grid container spacing={2} direction="column" alignItems="center">
+        <Grid container spacing={1} alignItems="center" justify="space-evenly">
+          <_.MenuButton />
+          <_.PageHeader />
+          <_.BackButton />
+        </Grid>
+        <Grid item>
+          <Route exact path="/" component={Customer.Home} />
+          <Route path="/book" component={Customer.Book} />
+          <Route path="/about" component={Customer.About} />
+          <Route exact path="/admin" component={Admin.Home} />
+        </Grid>
       </Grid>
-      <Grid item>
-        <Route exact path="/" component={Customer.Home} />
-        <Route path="/book" component={Customer.Book} />
-        <Route path="/about" component={Customer.About} />
-        <Route exact path="/admin" component={Admin.Home} />
-      </Grid>
-    </Grid>
-  </div>;
+    </div>
+  );
 }
