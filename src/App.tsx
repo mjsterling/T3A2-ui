@@ -9,11 +9,7 @@ export default function App() {
     <div>
       <_.DrawerMenu />
       <Grid container spacing={2} direction="column" alignItems="center">
-        <Grid container spacing={1} alignItems="center" justify="space-evenly">
-          <_.MenuButton />
-          <_.PageHeader />
-          <_.BackButton />
-        </Grid>
+        <_.PageHeader />
         <Grid item>
           <Route exact path="/" component={Customer.Home} />
           <Route path="/book" component={Customer.Book} />
