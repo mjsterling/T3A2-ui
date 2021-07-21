@@ -2,9 +2,9 @@ import {
   List,
   ListItem,
   ListItemText,
-  SwipeableDrawer,
   Divider,
   IconButton,
+  Drawer,
 } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,14 +18,10 @@ export default function DrawerMenu() {
   const dispatch = useDispatch();
   const { toggleMenu } = bindActionCreators(actionCreators, dispatch);
   return (
-    <SwipeableDrawer
-      open={menuOpen}
-      onClose={() => toggleMenu}
-      onOpen={() => toggleMenu}
-    >
+    <Drawer open={menuOpen}>
       <List>
         <ListItem>
-          <IconButton onClick={() => toggleMenu} color="secondary">
+          <IconButton onClick={() => toggleMenu()} color="secondary">
             <Close />
           </IconButton>
         </ListItem>
@@ -35,6 +31,6 @@ export default function DrawerMenu() {
       </List>
       <Divider />
       <_.Notifications />
-    </SwipeableDrawer>
+    </Drawer>
   );
 }

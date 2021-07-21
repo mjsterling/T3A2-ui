@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import menuOpenReducer from "./menuOpenReducer";
+import menuReducer from "./menuReducer";
 import roomReducer from "./roomReducer";
 
 const rootReducer = combineReducers({
   rooms: roomReducer,
-  menuOpen: menuOpenReducer,
+  menuOpen: menuReducer,
 });
 
 export default rootReducer;
