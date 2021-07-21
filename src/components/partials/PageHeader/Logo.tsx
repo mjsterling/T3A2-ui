@@ -5,6 +5,11 @@ export default function Logo() {
   const { bannerLogo } = Images;
   const history = useHistory();
   return (
-    <img onClick={() => history.push("/")} src={bannerLogo} width="100%" />
+    <img
+      onClick={() => history.push("/")}
+      src={bannerLogo}
+      alt="Banner Logo"
+      width="100%"
+    />
   );
 }

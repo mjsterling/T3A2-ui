@@ -11,9 +11,3 @@ export const closeMenu = () => {
     dispatch({ type: "CLOSE_MENU" });
   };
 };
-
-export const toggleMenu = () => {
-  return (dispatch: Dispatch<any>) => {
-    dispatch({ type: "TOGGLE_MENU" });
-  };
-};

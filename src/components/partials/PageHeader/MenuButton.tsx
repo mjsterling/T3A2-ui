@@ -6,10 +6,10 @@ import { actionCreators } from "state";
 
 export default function MenuButton() {
   const dispatch = useDispatch();
-  const { toggleMenu } = bindActionCreators(actionCreators, dispatch);
+  const { openMenu } = bindActionCreators(actionCreators, dispatch);
 
   return (
-    <IconButton onClick={toggleMenu}>
+    <IconButton onClick={openMenu}>
       <Menu />
     </IconButton>
   );

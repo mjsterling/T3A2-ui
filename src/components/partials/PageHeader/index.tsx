@@ -1,5 +1,4 @@
-import { Grid } from "@material-ui/core";
-import _ from "..";
+import { Grid, Hidden } from "@material-ui/core";
 import BackButton from "./BackButton";
 import MenuButton from "./MenuButton";
 import Logo from "./Logo";
@@ -9,7 +8,9 @@ export default function PageHeader() {
     <Grid item xs={12}>
       <Grid container alignItems="center" justify="space-evenly">
         <Grid item xs={2}>
-          <MenuButton />
+          <Hidden smUp>
+            <MenuButton />
+          </Hidden>
         </Grid>
         <Grid item xs={8}>
           <Logo />

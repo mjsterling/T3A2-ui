@@ -1,14 +1,14 @@
-import { Grid, makeStyles, Theme } from "@material-ui/core";
+import { Grid, makeStyles } from "@material-ui/core";
 import { Route } from "react-router-dom";
 import Customer from "./components/customer";
 import Admin from "./components/admin";
 import _ from "./components/partials";
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles({
   app: {
     margin: "4%",
   },
-}));
+});
 
 export default function App() {
   const classes = useStyles();
