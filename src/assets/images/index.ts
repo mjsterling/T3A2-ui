@@ -1,3 +1,4 @@
 import bannerLogo from "./bannerLogo.png";
-const images = { bannerLogo };
+import elmPhotos from "./elmPhotos";
+const images = { bannerLogo, elmPhotos };
 export default images;
