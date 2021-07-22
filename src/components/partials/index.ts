@@ -1,23 +1,23 @@
+import Admin from "./Admin/index";
 import BookingPopup from "./BookingPopup";
-import Calendar from "./Calendar";
-import DatePicker from "./DatePicker";
-import DrawerMenu from "./DrawerMenu/index";
+import Guest from "./Guest/index";
 import ImageCard from "./ImageCard";
 import ImageCarousel from "./ImageCarousel";
 import ImagePopup from "./ImagePopup";
-import PageHeader from "./PageHeader/index";
+import Logo from "./Logo";
+import PageFooter from "./PageFooter";
 import RoomCard from "./RoomCard";
 import SocialLinks from "./SocialLinks";
 
 const _ = {
+  Admin,
   BookingPopup,
-  Calendar,
-  DatePicker,
-  DrawerMenu,
+  Guest,
   ImageCard,
   ImageCarousel,
   ImagePopup,
-  PageHeader,
+  Logo,
+  PageFooter,
   RoomCard,
   SocialLinks,
 };
