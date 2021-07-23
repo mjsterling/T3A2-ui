@@ -8,6 +8,12 @@ import {
   incDogs,
   decDogs,
 } from "./bookingPax";
+import {
+  setFirstName,
+  setLastName,
+  setEmail,
+  setPhoneNumber,
+} from "./bookingDetails";
 
 const actionCreators = {
   openMenu,
@@ -20,6 +26,10 @@ const actionCreators = {
   decChildren,
   incDogs,
   decDogs,
+  setFirstName,
+  setLastName,
+  setEmail,
+  setPhoneNumber,
 };
 
 export default actionCreators;

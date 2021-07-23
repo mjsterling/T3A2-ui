@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import bookingDetailsReducer from "./bookingDetailsReducer";
 import bookingPaxReducer from "./bookingPaxReducer";
 import guestDateReducer from "./guestDateReducer";
 import menuReducer from "./menuReducer";
@@ -9,6 +10,7 @@ const rootReducer = combineReducers({
   menuOpen: menuReducer,
   guestDates: guestDateReducer,
   bookingPax: bookingPaxReducer,
+  bookingDetails: bookingDetailsReducer,
 });
 
 export default rootReducer;
