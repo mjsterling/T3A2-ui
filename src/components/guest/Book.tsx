@@ -6,9 +6,11 @@ export default function Book() {
   return (
     <Grid container direction="column" spacing={2} alignItems="center">
       <Grid item>
-        <_.Guest.DateSelector />
+        <_.DateSelector />
       </Grid>
-      <Grid item></Grid>
+      <Grid item>
+        <_.PaxSelector />
+      </Grid>
     </Grid>
   );
 }

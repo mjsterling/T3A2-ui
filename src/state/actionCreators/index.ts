@@ -1,26 +1,25 @@
-import { MaterialUiPickersDate } from "@material-ui/pickers/typings/date";
-import { Dispatch } from "redux";
+import { openMenu, closeMenu } from "./menuOpen";
+import { setGuestCheckIn, setGuestCheckOut } from "./bookingDates";
+import {
+  incAdults,
+  decAdults,
+  incChildren,
+  decChildren,
+  incDogs,
+  decDogs,
+} from "./bookingPax";
 
-export const openMenu = () => {
-  return (dispatch: Dispatch<any>) => {
-    dispatch({ type: "OPEN_MENU" });
-  };
+const actionCreators = {
+  openMenu,
+  closeMenu,
+  setGuestCheckIn,
+  setGuestCheckOut,
+  incAdults,
+  decAdults,
+  incChildren,
+  decChildren,
+  incDogs,
+  decDogs,
 };
 
-export const closeMenu = () => {
-  return (dispatch: Dispatch<any>) => {
-    dispatch({ type: "CLOSE_MENU" });
-  };
-};
-
-export const setGuestCheckIn = (payload: Date | MaterialUiPickersDate) => {
-  return (dispatch: Dispatch<any>) => {
-    dispatch({ type: "SET_CHECK_IN", payload: payload });
-  };
-};
-
-export const setGuestCheckOut = (payload: Date | MaterialUiPickersDate) => {
-  return (dispatch: Dispatch<any>) => {
-    dispatch({ type: "SET_CHECK_OUT", payload: payload });
-  };
-};
+export default actionCreators;

@@ -10,7 +10,7 @@ import {
 import { Close } from "@material-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
-import { actionCreators } from "state";
+import actionCreators from "state/actionCreators";
 import { RootState } from "state/reducers";
 import Notifications from ".";
 

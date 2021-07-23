@@ -20,6 +20,7 @@ export default function App() {
           <Route exact path="/" component={Guest.Home} />
           <Route path="/book" component={Guest.Book} />
           <Route path="/admin" component={Admin.Home} />
+          <Route path="/login" component={Admin.Login} />
         </Grid>
       </Grid>
     </div>

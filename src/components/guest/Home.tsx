@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <Grid container direction="column" spacing={2} alignItems="center">
       <Grid item>
-        <_.Guest.DateSelector />
+        <_.DateSelector />
       </Grid>
 
       <Grid item>

@@ -1,21 +1,23 @@
 import { Button, Grid } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
-import {useState} from 'react'
+import { ChangeEvent, useState } from "react";
 
 export default function Login() {
   // event: { preventDefault: () => void; }
 
   const [loginDetails, setLoginDetails] = useState({
-    email:'',
-    password:''
-  })
+    email: "",
+    password: "",
+  });
 
-  const handleChange = (event:any) => {
+  const handleChange = (
+    event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
     setLoginDetails({
       ...loginDetails,
-      [event.target.name]: event.target.value
-    })
-  }
+      [event.target.name]: event.target.value,
+    });
+  };
 
   const handleLogin = (event: { preventDefault: () => void }) => {
     event.preventDefault();
@@ -24,24 +26,25 @@ export default function Login() {
   return (
     <Grid container direction="column" spacing={2} alignItems="center">
       <form onSubmit={handleLogin}>
-        <Grid container direction='column' spacing={5} alignItems="center">
+        <Grid container direction="column" spacing={5} alignItems="center">
           <Grid item>
-            <TextField 
-            id="outlined-basic"
-            label="email" 
-            variant="outlined" 
-            name='email'
-            value={loginDetails.email}
-            onChange={(e)=>handleChange(e)}/>
+            <TextField
+              id="outlined-basic"
+              label="email"
+              variant="outlined"
+              name="email"
+              value={loginDetails.email}
+              onChange={(e) => handleChange(e)}
+            />
           </Grid>
           <Grid item>
             <TextField
               id="outlined-basic"
               label="password"
               variant="outlined"
-              name='password'
+              name="password"
               value={loginDetails.password}
-              onChange={(e)=>handleChange(e)}
+              onChange={(e) => handleChange(e)}
             />
           </Grid>
           <Grid item>

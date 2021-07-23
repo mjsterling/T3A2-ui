@@ -4,7 +4,7 @@ import MomentUtils from "@date-io/moment";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "state/reducers";
 import { bindActionCreators } from "redux";
-import { actionCreators } from "state";
+import actionCreators from "state/actionCreators";
 import { useHistory } from "react-router-dom";
 
 export default function GuestDatePicker() {
