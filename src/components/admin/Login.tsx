@@ -1,51 +1,118 @@
-import { Button, Grid } from "@material-ui/core";
+import { Button, Grid, makeStyles, Typography } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
-import {useState} from 'react'
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+
+const useStyles = makeStyles({
+  redAlert: {
+    color: "red",
+    fontWeight: "bold",
+  },
+  textField: {
+    width: "50vw",
+
+    '& label':{
+      textAlign:'center'
+    }
+  },
+  submitButton: {
+    width: "30vw"
+  },
+});
 
 export default function Login() {
-  // event: { preventDefault: () => void; }
+  const classes = useStyles();
 
   const [loginDetails, setLoginDetails] = useState({
-    email:'',
-    password:''
-  })
+    email: "",
+    password: "",
+  });
 
-  const handleChange = (event:any) => {
+  const [redAlert, setRedAlert] = useState("");
+
+  const handleChange = (event: any) => {
     setLoginDetails({
       ...loginDetails,
-      [event.target.name]: event.target.value
-    })
-  }
+      [event.target.name]: event.target.value,
+    });
+  };
 
   const handleLogin = (event: { preventDefault: () => void }) => {
     event.preventDefault();
+    loginRequest();
+  };
+
+  const axios = require("axios").default;
+  const history = useHistory();
+
+  const loginRequest = async () => {
+    axios({
+      method: "post",
+      url: `http://localhost:3000/login`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: {
+        email: loginDetails.email,
+        password: loginDetails.password,
+      },
+    })
+      .then((res: { data: { token: string } }) => {
+        console.log(res.data.token);
+        if (res.data) {
+          localStorage.setItem("jwt", res.data.token);
+          history.push("/admin");
+        } else {
+          console.log(res);
+        }
+      })
+      .catch((e: any) => {
+        console.log(e);
+        setRedAlert(
+          e.message.match(401)
+            ? "Invalid username or password"
+            : "Server error, please contact support"
+        );
+      });
   };
 
   return (
     <Grid container direction="column" spacing={2} alignItems="center">
+      {redAlert && (
+        <Typography variant="subtitle2" className={classes.redAlert}>
+          {redAlert}
+        </Typography>
+      )}
       <form onSubmit={handleLogin}>
-        <Grid container direction='column' spacing={5} alignItems="center">
+        <Grid container direction="column" spacing={5} alignItems="center">
           <Grid item>
-            <TextField 
-            id="outlined-basic"
-            label="email" 
-            variant="outlined" 
-            name='email'
-            value={loginDetails.email}
-            onChange={(e)=>handleChange(e)}/>
+            <TextField
+              id="outlined-basic"
+              label="Email"
+              variant="outlined"
+              name="email"
+              value={loginDetails.email}
+              onChange={(e) => handleChange(e)}
+              className={classes.textField}
+            />
           </Grid>
           <Grid item>
             <TextField
               id="outlined-basic"
-              label="password"
+              label="Password"
               variant="outlined"
-              name='password'
+              name="password"
               value={loginDetails.password}
-              onChange={(e)=>handleChange(e)}
+              onChange={(e) => handleChange(e)}
+              className={classes.textField}
             />
           </Grid>
           <Grid item>
-            <Button variant="outlined" type="submit">
+            <Button 
+              variant="outlined"
+              type="submit"
+              className={classes.submitButton}
+            >
               Log In
             </Button>
           </Grid>
