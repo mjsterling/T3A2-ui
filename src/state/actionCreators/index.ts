@@ -13,7 +13,13 @@ import {
   setLastName,
   setEmail,
   setPhoneNumber,
+  setReferenceNumber,
 } from "./bookingDetails";
+import {
+  acceptTermsConditions,
+  acceptPrivacyPolicy,
+  acceptPetsPolicy,
+} from "./termsConditions";
 
 const actionCreators = {
   openMenu,
@@ -30,6 +36,10 @@ const actionCreators = {
   setLastName,
   setEmail,
   setPhoneNumber,
+  acceptTermsConditions,
+  acceptPrivacyPolicy,
+  acceptPetsPolicy,
+  setReferenceNumber,
 };
 
 export default actionCreators;

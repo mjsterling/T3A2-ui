@@ -31,8 +31,8 @@ const useStyles = makeStyles({
     boxShadow: "0 0 5px black",
   },
   default: {
-    transform: "matrix(0.2, 0, 0, 0.2, 0, 0)",
     zIndex: 1,
+    transform: "matrix(0.2, 0, 0, 0.2, 0, 0)",
   },
   container: {
     width: "40vh",

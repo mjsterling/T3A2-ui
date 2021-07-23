@@ -6,7 +6,14 @@ const reducer = (
 ) => {
   switch (action.type) {
     case "SET_CHECK_IN":
-      return { ...state, checkIn: action.payload };
+      if (moment(action.payload).isAfter(moment(state.checkOut))) {
+        return {
+          checkIn: action.payload,
+          checkOut: moment(action.payload).add(1, "day"),
+        };
+      } else {
+        return { ...state, checkIn: action.payload };
+      }
     case "SET_CHECK_OUT":
       if (moment(action.payload).isBefore(moment(state.checkIn))) {
         return {

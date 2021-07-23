@@ -6,6 +6,7 @@ import Logo from "./Logo";
 import PageFooter from "./PageFooter";
 import PaxSelector from "./PaxSelector";
 import RoomCard from "./RoomCard";
+import TermsConditions from "./TermsConditions";
 
 const _ = {
   Admin,
@@ -16,6 +17,7 @@ const _ = {
   PageFooter,
   PaxSelector,
   RoomCard,
+  TermsConditions,
 };
 
 export default _;

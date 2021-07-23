@@ -4,6 +4,7 @@ import bookingPaxReducer from "./bookingPaxReducer";
 import guestDateReducer from "./guestDateReducer";
 import menuReducer from "./menuReducer";
 import roomReducer from "./roomReducer";
+import termsConditionsReducer from "./termsConditionsReducer";
 
 const rootReducer = combineReducers({
   rooms: roomReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   guestDates: guestDateReducer,
   bookingPax: bookingPaxReducer,
   bookingDetails: bookingDetailsReducer,
+  termsConditions: termsConditionsReducer,
 });
 
 export default rootReducer;

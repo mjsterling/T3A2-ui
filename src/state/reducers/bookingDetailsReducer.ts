@@ -5,6 +5,7 @@ const reducer = (
     lastName: "",
     email: "",
     phone: "",
+    referenceNumber: "",
   },
   action: ReduxAction
 ) => {
@@ -44,13 +45,15 @@ const reducer = (
         ...state,
         phone: phone,
       };
+    case "SET_REFERENCE_NUMBER":
+      return { ...state, referenceNumber: action.payload };
     default:
       console.log("default");
       return state;
   }
 };
 
-interface Booking {
+export interface Booking {
   [key: string]: string;
 }
 

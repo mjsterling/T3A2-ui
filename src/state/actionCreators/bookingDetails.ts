@@ -20,3 +20,8 @@ export const setPhoneNumber = (payload: string) => {
     dispatch({ type: "SET_PHONE", payload: payload });
   };
 };
+export const setReferenceNumber = (payload: string) => {
+  return (dispatch: Dispatch<any>) => {
+    dispatch({ type: "SET_REFERENCE_NUMBER", payload: payload });
+  };
+};
