@@ -14,7 +14,7 @@ export default function TermsConditions() {
   const termsConditions = useSelector(
     (state: RootState) => state.termsConditions
   );
-  const bookingPax = useSelector((state: RootState) => state.bookingPax);
+  const { numDogs } = useSelector((state: RootState) => state.bookingRequest);
   const dispatch = useDispatch();
   const { acceptTermsConditions, acceptPrivacyPolicy, acceptPetsPolicy } =
     bindActionCreators(actionCreators, dispatch);
@@ -96,7 +96,7 @@ export default function TermsConditions() {
           </Card>
         </Grid>
       ) : null}
-      {bookingPax.dogs > 0 ? (
+      {numDogs > 0 ? (
         <Grid item>
           <FormControlLabel
             control={
@@ -110,7 +110,7 @@ export default function TermsConditions() {
           />
         </Grid>
       ) : null}
-      {bookingPax.dogs > 0 && !termsConditions.pets ? (
+      {numDogs > 0 && !termsConditions.pets ? (
         <Grid item>
           <Card style={{ height: "20vh", overflow: "scroll" }}>
             <Typography align="center" style={{ fontSize: "8pt" }}>

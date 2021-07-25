@@ -1,4 +1,6 @@
 import Admin from "./Admin/index";
+import BackButton from "./BackButton";
+import BigBackButton from "./BigBackButton";
 import BookingPopup from "./BookingPopup";
 import DateSelector from "./DateSelector";
 import ImageCarousel from "./ImageCarousel";
@@ -11,6 +13,8 @@ import PaxIcons from "./PaxIcons";
 
 const _ = {
   Admin,
+  BackButton,
+  BigBackButton,
   BookingPopup,
   DateSelector,
   ImageCarousel,

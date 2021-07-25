@@ -27,7 +27,7 @@ export default function Home() {
   const [inputError, setInputError] = useState(false);
   function handleRefInput(value: string) {
     setBookingRef(value);
-    if (value.length === 10) {
+    if (value.length === 6) {
       axios
         .get(`http://localhost:3001/requests/${value.toUpperCase()}`)
         .then((res) => {
@@ -67,6 +67,7 @@ export default function Home() {
           onChange={(e) => handleRefInput(e.target.value)}
           value={bookingRef}
           error={inputError}
+          helperText={inputError ? "Booking not found" : null}
         />
       </Grid>
       <Grid item>

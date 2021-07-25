@@ -1,5 +1,5 @@
 import Home from "./Home";
-import Book from "./Book/index";
+import Book from "./Book";
 import Track from "./Track";
 
 const Guest = {

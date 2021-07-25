@@ -8,11 +8,18 @@ import { RootState } from "state/reducers";
 import { Send, Error } from "@material-ui/icons";
 
 export default function Book() {
-  const bookingPax = useSelector((state: RootState) => state.bookingPax);
-  const bookingDetails: Booking = useSelector(
-    (state: RootState) => state.bookingDetails
-  );
-  const bookingDates = useSelector((state: RootState) => state.bookingDates);
+  const {
+    firstName,
+    lastName,
+    email,
+    phone,
+    numAdults,
+    numChildren,
+    numDogs,
+    checkIn,
+    checkOut,
+    referenceNumber,
+  } = useSelector((state: RootState) => state.bookingRequest);
   const termsConditions = useSelector(
     (state: RootState) => state.termsConditions
   );
@@ -26,16 +33,17 @@ export default function Book() {
   } = bindActionCreators(actionCreators, dispatch);
 
   const SubmitButtonText = () => {
-    if (!bookingPax.adults) return "No Guests Selected";
     if (!termsConditions.terms) return "Terms & Conditions Required";
     if (!termsConditions.privacy) return "Privacy Policy Required";
-    if (bookingPax.dogs > 0 && !termsConditions.pets)
-      return "Pets Policy Required";
+    if (numDogs > 0 && !termsConditions.pets) return "Pets Policy Required";
     return "Submit Booking";
   };
 
   return (
     <Grid container direction="column" spacing={2} alignItems="center">
+      <Grid item>
+        <_.BigBackButton />
+      </Grid>
       <Grid item>
         <_.DateSelector />
       </Grid>
@@ -47,28 +55,28 @@ export default function Book() {
           <TextField
             label="First Name"
             onChange={(e) => setFirstName(e.target.value)}
-            value={bookingDetails.firstName}
+            value={firstName}
           />
         </Grid>
         <Grid item>
           <TextField
             label="Last Name"
             onChange={(e) => setLastName(e.target.value)}
-            value={bookingDetails.lastName}
+            value={lastName}
           />
         </Grid>
         <Grid item>
           <TextField
             label="Email"
             onChange={(e) => setEmail(e.target.value)}
-            value={bookingDetails.email}
+            value={email}
           />
         </Grid>
         <Grid item>
           <TextField
             label="Phone Number"
             onChange={(e) => setPhoneNumber(e.target.value)}
-            value={bookingDetails.phone}
+            value={phone}
           />
         </Grid>
         <Grid item>
@@ -78,15 +86,16 @@ export default function Book() {
           <Button
             onClick={() =>
               postBookingRequest({
-                firstName: bookingDetails.firstName,
-                lastName: bookingDetails.lastName,
-                email: bookingDetails.email,
-                phone: bookingDetails.phone,
-                numAdults: bookingPax.adults,
-                numChildren: bookingPax.children,
-                numDogs: bookingPax.dogs,
-                checkIn: bookingDates.checkIn,
-                checkOut: bookingDates.checkOut,
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                phone: phone,
+                numAdults: numAdults,
+                numChildren: numChildren,
+                numDogs: numDogs,
+                checkIn: checkIn,
+                checkOut: checkOut,
+                referenceNumber: referenceNumber || null,
               })
             }
             disabled={SubmitButtonText() !== "Submit Booking"}
@@ -102,8 +111,4 @@ export default function Book() {
       </Grid>
     </Grid>
   );
-}
-
-interface Booking {
-  [key: string]: string;
 }

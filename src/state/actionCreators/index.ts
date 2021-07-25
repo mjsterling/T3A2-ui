@@ -20,7 +20,7 @@ import {
   acceptPetsPolicy,
 } from "./termsConditions";
 import { setBookingRef } from "./bookingRef";
-import { setBookingRequest, postBookingRequest } from "./request";
+import { setBookingRequest, postBookingRequest } from "./bookingRequest";
 
 const actionCreators = {
   openMenu,
