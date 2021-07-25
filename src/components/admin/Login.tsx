@@ -11,12 +11,12 @@ const useStyles = makeStyles({
   textField: {
     width: "50vw",
 
-    '& label':{
-      textAlign:'center'
-    }
+    "& label": {
+      textAlign: "center",
+    },
   },
   submitButton: {
-    width: "30vw"
+    width: "30vw",
   },
 });
 
@@ -108,7 +108,7 @@ export default function Login() {
             />
           </Grid>
           <Grid item>
-            <Button 
+            <Button
               variant="outlined"
               type="submit"
               className={classes.submitButton}

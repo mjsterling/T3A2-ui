@@ -1,25 +1,29 @@
 import Admin from "./Admin/index";
+import BackButton from "./BackButton";
+import BigBackButton from "./BigBackButton";
 import BookingPopup from "./BookingPopup";
-import Guest from "./Guest/index";
-import ImageCard from "./ImageCard";
+import DateSelector from "./DateSelector";
 import ImageCarousel from "./ImageCarousel";
-import ImagePopup from "./ImagePopup";
 import Logo from "./Logo";
 import PageFooter from "./PageFooter";
+import PaxSelector from "./PaxSelector";
 import RoomCard from "./RoomCard";
-import SocialLinks from "./SocialLinks";
+import TermsConditions from "./TermsConditions";
+import PaxIcons from "./PaxIcons";
 
 const _ = {
   Admin,
+  BackButton,
+  BigBackButton,
   BookingPopup,
-  Guest,
-  ImageCard,
+  DateSelector,
   ImageCarousel,
-  ImagePopup,
   Logo,
   PageFooter,
+  PaxIcons,
+  PaxSelector,
   RoomCard,
-  SocialLinks,
+  TermsConditions,
 };
 
 export default _;
