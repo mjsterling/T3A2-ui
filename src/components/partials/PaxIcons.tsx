@@ -1,4 +1,5 @@
 import { Face, Person, Pets } from "@material-ui/icons";
+import { Grid } from '@material-ui/core'
 
 export default function PaxIcons(props: {
   adults?: number;
@@ -12,5 +13,5 @@ export default function PaxIcons(props: {
   const Dogs = props.dogs ? new Array(props.dogs).fill(<Pets />) : [];
   const PaxIcons: JSX.Element[] = [...Adults, ...Children, ...Dogs];
 
-  return <>{PaxIcons}</>;
+  return <Grid container direction="row" alignItems="center" justifyContent="center">{PaxIcons}</Grid>;
 }

@@ -21,6 +21,7 @@ import {
 } from "./termsConditions";
 import { setBookingRef } from "./bookingRef";
 import { setBookingRequest, postBookingRequest } from "./bookingRequest";
+import getRooms from './rooms'
 
 const actionCreators = {
   openMenu,
@@ -43,6 +44,7 @@ const actionCreators = {
   setBookingRef,
   setBookingRequest,
   postBookingRequest,
+  getRooms,
 };
 
 export default actionCreators;
