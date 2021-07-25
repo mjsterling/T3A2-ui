@@ -73,8 +73,6 @@ export default function Home() {
   const checkRoomAvail = (room: room, date: Date) => {
     console.log('checking room avail');
     if(!!!room.bookings){ return true; }
-    console.log(date);
-    console.log(room.bookings.find(booking => booking.dates.includes(date.toDateString())));
     return (room.bookings.find(booking => booking.dates.includes(date.toDateString())));
   }
 
