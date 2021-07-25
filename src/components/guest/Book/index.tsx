@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import actionCreators from "state/actionCreators";
 import { RootState } from "state/reducers";
-import PostRequest from "crud/PostRequest";
 import { Send, Error } from "@material-ui/icons";
 
 export default function Book() {
@@ -13,12 +12,18 @@ export default function Book() {
   const bookingDetails: Booking = useSelector(
     (state: RootState) => state.bookingDetails
   );
+  const bookingDates = useSelector((state: RootState) => state.bookingDates);
   const termsConditions = useSelector(
     (state: RootState) => state.termsConditions
   );
   const dispatch = useDispatch();
-  const { setFirstName, setLastName, setEmail, setPhoneNumber } =
-    bindActionCreators(actionCreators, dispatch);
+  const {
+    setFirstName,
+    setLastName,
+    setEmail,
+    setPhoneNumber,
+    postBookingRequest,
+  } = bindActionCreators(actionCreators, dispatch);
 
   const SubmitButtonText = () => {
     if (!bookingPax.adults) return "No Guests Selected";
@@ -71,7 +76,19 @@ export default function Book() {
         </Grid>
         <Grid item>
           <Button
-            onClick={PostRequest}
+            onClick={() =>
+              postBookingRequest({
+                firstName: bookingDetails.firstName,
+                lastName: bookingDetails.lastName,
+                email: bookingDetails.email,
+                phone: bookingDetails.phone,
+                numAdults: bookingPax.adults,
+                numChildren: bookingPax.children,
+                numDogs: bookingPax.dogs,
+                checkIn: bookingDates.checkIn,
+                checkOut: bookingDates.checkOut,
+              })
+            }
             disabled={SubmitButtonText() !== "Submit Booking"}
             variant="contained"
             color="primary"

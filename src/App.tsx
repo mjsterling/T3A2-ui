@@ -19,6 +19,7 @@ export default function App() {
         <Grid item xs={12}>
           <Route exact path="/" component={Guest.Home} />
           <Route path="/book" component={Guest.Book} />
+          <Route path="/track" component={Guest.Track} />
           <Route path="/admin" component={Admin.Home} />
           <Route path="/login" component={Admin.Login} />
         </Grid>

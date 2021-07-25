@@ -7,6 +7,7 @@ import PageFooter from "./PageFooter";
 import PaxSelector from "./PaxSelector";
 import RoomCard from "./RoomCard";
 import TermsConditions from "./TermsConditions";
+import PaxIcons from "./PaxIcons";
 
 const _ = {
   Admin,
@@ -15,6 +16,7 @@ const _ = {
   ImageCarousel,
   Logo,
   PageFooter,
+  PaxIcons,
   PaxSelector,
   RoomCard,
   TermsConditions,

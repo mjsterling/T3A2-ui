@@ -13,13 +13,14 @@ import {
   setLastName,
   setEmail,
   setPhoneNumber,
-  setReferenceNumber,
 } from "./bookingDetails";
 import {
   acceptTermsConditions,
   acceptPrivacyPolicy,
   acceptPetsPolicy,
 } from "./termsConditions";
+import { setBookingRef } from "./bookingRef";
+import { setBookingRequest, postBookingRequest } from "./request";
 
 const actionCreators = {
   openMenu,
@@ -39,7 +40,9 @@ const actionCreators = {
   acceptTermsConditions,
   acceptPrivacyPolicy,
   acceptPetsPolicy,
-  setReferenceNumber,
+  setBookingRef,
+  setBookingRequest,
+  postBookingRequest,
 };
 
 export default actionCreators;

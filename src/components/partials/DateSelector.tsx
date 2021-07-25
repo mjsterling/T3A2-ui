@@ -12,7 +12,7 @@ export default function GuestDatePicker() {
   const dispatch = useDispatch();
 
   const { checkIn, checkOut } = useSelector(
-    (state: RootState) => state.guestDates
+    (state: RootState) => state.bookingDates
   );
   const { setGuestCheckIn, setGuestCheckOut } = bindActionCreators(
     actionCreators,

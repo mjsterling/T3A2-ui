@@ -32,7 +32,7 @@ const reducer = (
       let email = action.payload
         .match(/\w*@*\.*/g)
         .join("")
-        .toLowercase();
+        .toLowerCase();
       return {
         ...state,
         email: email,
