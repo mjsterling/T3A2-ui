@@ -4,6 +4,8 @@ import react, { useEffect, useState } from "react";
 import MomentUtils from "@date-io/moment";
 import { MaterialUiPickersDate } from "@material-ui/pickers/typings/date";
 import axios from "axios";
+import { useSelector } from "react-redux";
+import { RootState } from "state/reducers";
 
 const useStyles = makeStyles({
   roomContainer:{
@@ -15,14 +17,19 @@ const useStyles = makeStyles({
   }
 });
 export default function Home() {
-  const [datePicked, setDatePicked] = useState(new Date('2021-01-5'));
-  const [roomData, setRoomData] = useState([]);
+  const [datePicked, setDatePicked] = useState(new Date());
+  // const [roomData, setRoomData] = useState([]);
+  const roomData = useSelector((state: RootState) => state.rooms)
   const styles = useStyles();
 
+  // useEffect(() => {
+  //   getRoomData();
+  //   console.log(roomData);
+  // }, [datePicked]);
+
   useEffect(() => {
-    getRoomData();
-    console.log(roomData);
-  }, [datePicked]);
+    
+  }, [roomData])
 
   const changeDate = (e: MaterialUiPickersDate) => {
     // console.log(e?.toDate());
@@ -30,25 +37,25 @@ export default function Home() {
     // getRoomData();
   };
 
-  const getRoomData = async () => {
-    axios({
-      method: "GET",
-      url: `http://localhost:3000/rooms`,
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-      },
-    })
-      .then((res: { data: [] }) => {
-        return res.data;
-      })
-      .then((data) => {
-        setRoomData(data);
-      })
-      .catch((e: any) => {
-        console.log(e);
-      });
-  };
+  // const getRoomData = async () => {
+  //   axios({
+  //     method: "GET",
+  //     url: `http://localhost:3000/rooms`,
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+  //     },
+  //   })
+  //     .then((res: { data: [] }) => {
+  //       return res.data;
+  //     })
+  //     .then((data) => {
+  //       setRoomData(data);
+  //     })
+  //     .catch((e: any) => {
+  //       console.log(e);
+  //     });
+  // };
 
   
   const checkDate = (from: string, to: string, check: string) => {
@@ -60,17 +67,15 @@ export default function Home() {
   }
   interface room {
     bookings?:[{dates:string}],
-    number:bigint
+    number:number
   }
   // update this to return the booking info if it is unavailable
   const checkRoomAvail = (room: room, date: Date) => {
     console.log('checking room avail');
     if(!!!room.bookings){ return true; }
-    return room.bookings.some((booking, index) => {
-      const b = !checkDate(booking.dates[0], booking.dates[1], date.toDateString());
-      console.log('available', b);
-      return b;
-    });
+    console.log(date);
+    console.log(room.bookings.find(booking => booking.dates.includes(date.toDateString())));
+    return (room.bookings.find(booking => booking.dates.includes(date.toDateString())));
   }
 
   return (
@@ -94,7 +99,7 @@ export default function Home() {
               justifyContent="center"
               alignItems="center"
             >
-              {roomData.map((room: { number:bigint }, index) => {
+              {roomData.map((room: { number:number }, index) => {
                 return <Grid container className={styles.roomContainer} key={index} direction='column' justifyContent='center' alignItems='center'>
                   {/* \/ Room number \/ */}
                   <Grid item>
@@ -105,7 +110,7 @@ export default function Home() {
                   {/* \/ Available/Booking data \/ */}
                   <Grid item>
                     <Typography>
-                      {checkRoomAvail(room, datePicked) && `omg yes, slay at index: ${index}`}
+                      {checkRoomAvail(room, datePicked) ? `Available` : `Booked already`}
                     </Typography>
                   </Grid>
                   </Grid>;
