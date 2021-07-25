@@ -11,6 +11,8 @@ import { RootState } from "state/reducers";
 import actionCreators from 'state/actionCreators'
 import _ from 'components/partials'
 import { Room } from "components/Interfaces";
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 const useStyles = makeStyles({
   roomContainer:{
@@ -58,16 +60,24 @@ export default function Home() {
 
   const RoomCards = () => roomNumbers !== [] ? roomNumbers.map((n: number) => <_.RoomCard room_number={n} date={datePicked} />) : null
 
+  //seems gross
+  const incrementDay = (forward: boolean  ) => {
+    let newDate = forward ? datePicked.setDate(datePicked.getDate() + 1) : datePicked.setDate(datePicked.getDate() - 1);
+    setDatePicked(moment(newDate).toDate());
+  }
+
   return (
     <MuiPickersUtilsProvider utils={MomentUtils}>
       <Grid container direction="column" alignItems="center" spacing={5}>
-        <Grid item>
+        <Grid item alignContent='center' justifyContent='center'>
+            <ArrowBackIcon onClick={() => incrementDay(false)}/>
             <DatePicker
               label="Dates"
               inputVariant="outlined"
               value={datePicked}
               onChange={(e: MaterialUiPickersDate) => setDatePicked(moment(e).toDate())}
             />
+            <ArrowForwardIcon onClick={() => incrementDay(true)}/>
           </Grid>
           <Grid item xs={12}>
             <Grid
