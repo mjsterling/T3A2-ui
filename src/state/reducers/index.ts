@@ -4,6 +4,7 @@ import menuReducer from "./menuReducer";
 import bookingRequestReducer from "./bookingRequestReducer";
 import roomReducer from "./roomReducer";
 import termsConditionsReducer from "./termsConditionsReducer";
+import roomCalendarReducer from "./roomCalendarReducer";
 
 const rootReducer = combineReducers({
   bookingRef: bookingRefReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   bookingRequest: bookingRequestReducer,
   rooms: roomReducer,
   termsConditions: termsConditionsReducer,
+  roomCalendar: roomCalendarReducer,
 });
 
 export default rootReducer;

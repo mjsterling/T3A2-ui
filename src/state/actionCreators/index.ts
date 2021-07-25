@@ -21,9 +21,13 @@ import {
 } from "./termsConditions";
 import { setBookingRef } from "./bookingRef";
 import { setBookingRequest, postBookingRequest } from "./bookingRequest";
-import getRooms from './rooms'
+import getRooms from "./rooms";
+import { decDate, incDate, setDate } from "./roomCalendar";
 
 const actionCreators = {
+  decDate,
+  incDate,
+  setDate,
   openMenu,
   closeMenu,
   setGuestCheckIn,
