@@ -71,6 +71,11 @@ export default function Home() {
         />
       </Grid>
       <Grid item>
+          <Typography variant="subtitle1" component="h2">
+            Check Dates
+          </Typography>
+        </Grid>
+      <Grid item>
         <_.DateSelector />
       </Grid>
 

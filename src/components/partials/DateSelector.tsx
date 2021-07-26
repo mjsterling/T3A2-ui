@@ -15,7 +15,7 @@ export default function GuestDatePicker() {
   const { checkIn, checkOut } = useSelector(
     (state: RootState) => state.bookingRequest
   );
-  const { setGuestCheckIn, setGuestCheckOut } = bindActionCreators(
+  const { setCheckIn, setCheckOut } = bindActionCreators(
     actionCreators,
     dispatch
   );
@@ -23,19 +23,13 @@ export default function GuestDatePicker() {
   const dateError = moment(checkIn).isBefore(moment().subtract(1, "day"));
   return (
     <MuiPickersUtilsProvider utils={MomentUtils}>
-      <Grid container direction="column" alignItems="center">
-        <Grid item>
-          <Typography variant="subtitle1" component="h2">
-            Check Dates
-          </Typography>
-        </Grid>
         <Grid container justifyContent="space-around">
           <Grid item xs={5}>
             <DatePicker
               label="Check In"
               inputVariant="outlined"
               value={checkIn}
-              onChange={(e) => setGuestCheckIn(e)}
+              onChange={(e) => setCheckIn(e)}
               error={dateError}
               helperText={
                 dateError ? "Check in cannot be earlier than today" : null
@@ -48,13 +42,12 @@ export default function GuestDatePicker() {
               inputVariant="outlined"
               value={checkOut}
               onChange={(e) => {
-                setGuestCheckOut(e);
+                setCheckOut(e);
                 history.push("/book");
               }}
             />
           </Grid>
         </Grid>
-      </Grid>
     </MuiPickersUtilsProvider>
   );
 }

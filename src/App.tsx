@@ -22,6 +22,7 @@ export default function App() {
           <Route path="/track" component={Guest.Track} />
           <Route path="/admin" component={Admin.Home} />
           <Route path="/login" component={Admin.Login} />
+          <Route exact path="/room/:id" component={Admin.Room} />
         </Grid>
       </Grid>
     </div>

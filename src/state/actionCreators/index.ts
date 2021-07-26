@@ -1,5 +1,5 @@
 import { openMenu, closeMenu } from "./menuOpen";
-import { setGuestCheckIn, setGuestCheckOut } from "./bookingDates";
+import { setCheckIn, setCheckOut } from "./bookingDates";
 import {
   incAdults,
   decAdults,
@@ -23,6 +23,7 @@ import { setBookingRef } from "./bookingRef";
 import { setBookingRequest, postBookingRequest } from "./bookingRequest";
 import getRooms from "./rooms";
 import { decDate, incDate, setDate } from "./roomCalendar";
+import { postBooking } from './adminBooking'
 
 const actionCreators = {
   decDate,
@@ -30,8 +31,8 @@ const actionCreators = {
   setDate,
   openMenu,
   closeMenu,
-  setGuestCheckIn,
-  setGuestCheckOut,
+  setCheckIn,
+  setCheckOut,
   incAdults,
   decAdults,
   incChildren,
@@ -49,6 +50,7 @@ const actionCreators = {
   setBookingRequest,
   postBookingRequest,
   getRooms,
+  postBooking,
 };
 
 export default actionCreators;
