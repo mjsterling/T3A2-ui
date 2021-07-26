@@ -5,79 +5,44 @@ import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import actionCreators from "state/actionCreators";
 import { RootState } from "state/reducers";
-import { Send, Error } from "@material-ui/icons";
+import { Send } from "@material-ui/icons";
 
 export default function Book() {
-  const {
-    firstName,
-    lastName,
-    email,
-    phone,
-    numAdults,
-    numChildren,
-    numDogs,
-    checkIn,
-    checkOut,
-    referenceNumber,
-  } = useSelector((state: RootState) => state.bookingRequest);
-  const termsConditions = useSelector(
-    (state: RootState) => state.termsConditions
+  const bookingRequest = useSelector(
+    (state: RootState) => state.bookingRequest
   );
   const dispatch = useDispatch();
-  const {
-    postBookingRequest,
-  } = bindActionCreators(actionCreators, dispatch);
-
-  const SubmitButtonText = () => {
-    if (!termsConditions.terms) return "Terms & Conditions Required";
-    if (!termsConditions.privacy) return "Privacy Policy Required";
-    if (numDogs > 0 && !termsConditions.pets) return "Pets Policy Required";
-    return "Submit Booking";
+  const { postBookingRequest } = bindActionCreators(actionCreators, dispatch);
+  const validateRequest = () => {
+    const values = Object.values(bookingRequest);
+    return !(values.includes("") || values.includes(null));
   };
-
   return (
-    <Grid container direction="column" spacing={2} alignItems="center">
+    <>
+      <_.BackButton />
       <Grid item>
-        <_.BigBackButton />
+        <_.Booking.DateSelector />
+      </Grid>
+      <Grid item container xs={8}>
+        <_.Booking.PaxSelector />
       </Grid>
       <Grid item>
-        <_.DateSelector />
+        <_.Booking.FormFields />
       </Grid>
       <Grid item>
-        <_.PaxSelector />
+        <_.TermsConditions />
       </Grid>
       <Grid item>
-        <_.BookingFormFields />
-        </Grid>
-        <Grid item>
-          <_.TermsConditions />
-        </Grid>
-        <Grid item>
-          <Button
-            onClick={() =>
-              postBookingRequest({
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                phone: phone,
-                numAdults: numAdults,
-                numChildren: numChildren,
-                numDogs: numDogs,
-                checkIn: checkIn,
-                checkOut: checkOut,
-                referenceNumber: referenceNumber || null,
-              })
-            }
-            disabled={SubmitButtonText() !== "Submit Booking"}
-            variant="contained"
-            color="primary"
-            endIcon={
-              SubmitButtonText() === "Submit Booking" ? <Send /> : <Error />
-            }
-          >
-            {SubmitButtonText()}
-          </Button>
-        </Grid>
+        <Button
+          onClick={() => postBookingRequest(bookingRequest)}
+          disabled={validateRequest()}
+          variant="contained"
+          color="primary"
+          endIcon={<Send />}
+        >
+          Book
+        </Button>
       </Grid>
+    </>
   );
 }

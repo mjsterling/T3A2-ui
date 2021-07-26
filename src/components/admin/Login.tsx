@@ -1,5 +1,6 @@
 import { Button, Grid, makeStyles, Typography } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
+import { Send } from "@material-ui/icons";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
@@ -77,14 +78,28 @@ export default function Login() {
   };
 
   return (
-    <Grid container direction="column" spacing={2} alignItems="center">
-      {redAlert && (
-        <Typography variant="subtitle2" className={classes.redAlert}>
-          {redAlert}
+    <Grid
+      container
+      item
+      xs={12}
+      direction="column"
+      spacing={2}
+      alignItems="center"
+    >
+      <Grid item xs>
+        <Typography variant="h6" component="h1">
+          Log In
         </Typography>
-      )}
+      </Grid>
+      <Grid item xs>
+        {redAlert && (
+          <Typography variant="subtitle2" className={classes.redAlert}>
+            {redAlert}
+          </Typography>
+        )}
+      </Grid>
       <form onSubmit={handleLogin}>
-        <Grid container direction="column" spacing={5} alignItems="center">
+        <Grid container direction="column" spacing={2} alignItems="center">
           <Grid item>
             <TextField
               id="outlined-basic"
@@ -101,6 +116,7 @@ export default function Login() {
               id="outlined-basic"
               label="Password"
               variant="outlined"
+              type="password"
               name="password"
               value={loginDetails.password}
               onChange={(e) => handleChange(e)}
@@ -109,7 +125,12 @@ export default function Login() {
           </Grid>
           <Grid item>
             <Button
-              variant="outlined"
+              variant="contained"
+              disabled={
+                !(loginDetails.email.length && loginDetails.password.length)
+              }
+              color="primary"
+              endIcon={<Send />}
               type="submit"
               className={classes.submitButton}
             >

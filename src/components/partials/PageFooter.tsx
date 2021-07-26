@@ -1,15 +1,7 @@
-import { Grid, Fab, makeStyles } from "@material-ui/core";
+import { Grid, Fab } from "@material-ui/core";
 import { Email, Phone, Room } from "@material-ui/icons";
 
-const useStyles = makeStyles({
-  fabContainer: {
-    position: "fixed",
-    bottom: "3vh",
-  },
-});
-
 export default function PageFooter() {
-  const classes = useStyles();
   const fabConstructor = (url: string, icon: JSX.Element) => {
     return () => (
       <Fab color="primary" size="small" onClick={() => window.open(url)}>
@@ -28,13 +20,7 @@ export default function PageFooter() {
   );
 
   return (
-    <Grid
-      container
-      spacing={2}
-      className={classes.fabContainer}
-      justify="center"
-      alignItems="center"
-    >
+    <Grid container item spacing={4} justify="center" alignItems="center">
       <Grid item>
         <PhoneFab />
       </Grid>

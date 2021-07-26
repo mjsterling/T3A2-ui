@@ -14,21 +14,10 @@ export const setBookingRequest = (payload: BookingRequest) => {
 export const postBookingRequest = (payload: BookingRequest) => {
   return (dispatch: Dispatch<any>) => {
     console.log(payload);
-    const bookingRequest = {
-      first_name: payload.firstName,
-      last_name: payload.lastName,
-      email_address: payload.email,
-      phone_number: payload.phone,
-      num_adults: payload.numAdults,
-      num_children: payload.numChildren,
-      num_dogs: payload.numDogs,
-      dates: payload.dates,
-    };
-
-    if (payload.referenceNumber) {
+    if (payload.reference_number) {
       axios
-        .patch(`http://localhost:3001/requests/${payload.referenceNumber}`, {
-          request: bookingRequest,
+        .patch(`http://localhost:3000/requests/${payload.reference_number}`, {
+          request: payload,
         })
         .then((res) => {
           if (res.status === 204) {
@@ -39,25 +28,23 @@ export const postBookingRequest = (payload: BookingRequest) => {
                 {
                   label: "OK",
                   onClick: () =>
-                    (window.location.href = "http://localhost:3000/track"),
+                    (window.location.href = "http://localhost:3001/track"),
                 },
               ],
             });
           }
         });
     } else {
-      bookingRequest.dates = [];
+      payload.dates = [];
       const lengthOfStay = moment(payload.checkOut).diff(
         moment(payload.checkIn),
         "days"
       );
       for (let i = 0; i < lengthOfStay; i++) {
-        bookingRequest.dates.push(
-          moment(payload.checkIn).add(i, "day").toDate()
-        );
+        payload.dates.push(moment(payload.checkIn).add(i, "day").toDate());
       }
       axios
-        .post(`http://localhost:3001/requests`, { request: bookingRequest })
+        .post(`http://localhost:3000/requests`, { request: payload })
         .then((res) => {
           if (res.status === 201 && res.data.reference_number) {
             dispatch({
@@ -71,7 +58,7 @@ export const postBookingRequest = (payload: BookingRequest) => {
                 {
                   label: "OK",
                   onClick: () =>
-                    (window.location.href = "http://localhost:3000/"),
+                    (window.location.href = "http://localhost:3001/"),
                 },
               ],
             });

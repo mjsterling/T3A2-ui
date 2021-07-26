@@ -79,7 +79,7 @@ export default function ImageCarousel(props: Props) {
   );
 
   return (
-    <Grid container justify="space-around" alignItems="center">
+    <Grid container item xs={12} justify="space-around" alignItems="center">
       <Grid item xs>
         {props.arrows ? (
           <IconButton

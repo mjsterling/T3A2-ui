@@ -5,7 +5,10 @@ import { useHistory } from "react-router-dom";
 export default function BackButton() {
   const history = useHistory();
   return (
-    <IconButton onClick={() => history.goBack()}>
+    <IconButton
+      style={{ position: "fixed", top: "2%", left: "2%" }}
+      onClick={() => history.goBack()}
+    >
       <ArrowBack />
     </IconButton>
   );

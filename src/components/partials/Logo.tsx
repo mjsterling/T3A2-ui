@@ -6,7 +6,7 @@ export default function Logo() {
   const history = useHistory();
   return (
     <img
-      onClick={() => history.push("/")}
+      onClick={() => history.push(localStorage.getItem("jwt") ? "/admin" : "/")}
       src={bannerLogo}
       alt="Banner Logo"
       width="100%"

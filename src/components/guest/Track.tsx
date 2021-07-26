@@ -21,14 +21,16 @@ export default function Track() {
     lastName,
     email,
     phone,
-    numAdults,
-    numChildren,
-    numDogs,
+    num_adults,
+    num_children,
+    num_dogs,
     dates,
     referenceNumber,
     status,
   } = useSelector((state: RootState) => state.bookingRequest);
+
   if (!referenceNumber) history.push("/");
+
   const cancelConfirmation = () =>
     confirmAlert({
       title: "Cancel Booking",
@@ -38,7 +40,7 @@ export default function Track() {
           label: "Yes",
           onClick: () => {
             axios
-              .delete(`http://localhost:3001/requests/${referenceNumber}`)
+              .delete(`http://localhost:3000/requests/${referenceNumber}`)
               .then((res) => {
                 confirmAlert({
                   title: "Sorry to see you go.",
@@ -51,44 +53,36 @@ export default function Track() {
         { label: "No", onClick: () => null },
       ],
     });
+
+  const LI = (props: { text: string }) => {
+    return (
+      <ListItem>
+        <ListItemText style={{ textAlign: "center" }} primary={props.text} />
+      </ListItem>
+    );
+  };
   return (
-    <Grid
-      container
-      spacing={2}
-      direction="column"
-      alignItems="center"
-      style={{ textAlign: "center" }}
-    >
+    <>
       <_.BackButton />
       <Typography variant="h6" component="h2">
         Booking {referenceNumber}
       </Typography>
       <List>
-        <ListItem>
-          <ListItemText primary={`Status: ${status}`} />
-        </ListItem>
-        <ListItem>
-          <ListItemText
-            primary={`Dates: ${dates[0]} - ${dates[dates.length - 1]}`}
-          />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary={`Name: ${firstName} ${lastName}`} />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary={`Email: ${email}`} />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary={`Phone: ${phone}`} />
-        </ListItem>
-        <ListItem>
-          <Typography>Guests:</Typography>
-          <_.PaxIcons
-            adults={numAdults}
-            children={numChildren}
-            dogs={numDogs}
-          />
-        </ListItem>
+        <LI text={`Status: ${status}`} />
+        <LI
+          text={`Dates: ${dates && dates[0]} - ${
+            dates && dates[dates.length - 1]
+          }`}
+        />
+        <LI text={`Name: ${firstName} ${lastName}`} />
+        <LI text={`Email: ${email}`} />
+        <LI text={`Phone: ${phone}`} />
+        <LI text={"Guests: "} />
+        <_.PaxIcons
+          adults={num_adults}
+          children={num_children}
+          dogs={num_dogs}
+        />
       </List>
       <Button
         variant="outlined"
@@ -100,6 +94,6 @@ export default function Track() {
       <Button variant="outlined" color="secondary" onClick={cancelConfirmation}>
         Cancel Booking
       </Button>
-    </Grid>
+    </>
   );
 }
