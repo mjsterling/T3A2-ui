@@ -63,7 +63,6 @@ export default function Track() {
   };
   return (
     <>
-      <_.BackButton />
       <Typography variant="h6" component="h2">
         Booking {referenceNumber}
       </Typography>

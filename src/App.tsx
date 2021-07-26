@@ -25,6 +25,7 @@ export default function App() {
         alt="background"
         src={images.elmPhotos[3]}
       />
+      <_.BackButton />
       <Grid container spacing={2} direction="column" alignItems="center">
         <Grid item xs={12} md={4}>
           <_.Logo />
@@ -43,6 +44,8 @@ export default function App() {
           <Route path="/admin" component={Admin.Home} />
           <Route path="/login" component={Admin.Login} />
           <Route exact path="/room/:id" component={Admin.Room} />
+          <Route path="/bookings" component={Admin.Bookings} />
+          <Route path="/requests" component={Admin.Requests} />
         </Grid>
       </Grid>
     </>

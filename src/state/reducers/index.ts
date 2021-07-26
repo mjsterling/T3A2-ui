@@ -1,15 +1,19 @@
 import { combineReducers } from "redux";
 import bookingRefReducer from "./bookingRefReducer";
+import bookingsReducer from "./bookingsReducer";
 import menuReducer from "./menuReducer";
 import bookingRequestReducer from "./bookingRequestReducer";
 import roomReducer from "./roomReducer";
 import termsConditionsReducer from "./termsConditionsReducer";
 import roomCalendarReducer from "./roomCalendarReducer";
+import requestsReducer from "./requestsReducer";
 
 const rootReducer = combineReducers({
   bookingRef: bookingRefReducer,
-  menuOpen: menuReducer,
   bookingRequest: bookingRequestReducer,
+  bookings: bookingsReducer,
+  menuOpen: menuReducer,
+  requests: requestsReducer,
   rooms: roomReducer,
   termsConditions: termsConditionsReducer,
   roomCalendar: roomCalendarReducer,

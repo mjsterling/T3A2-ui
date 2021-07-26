@@ -19,7 +19,6 @@ export default function Book() {
   };
   return (
     <>
-      <_.BackButton />
       <Grid item>
         <_.Booking.DateSelector />
       </Grid>

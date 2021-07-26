@@ -10,6 +10,7 @@ export interface BookingRequest {
   num_children: number;
   num_dogs: number;
   dates?: Date[];
+  created_at?: Date;
 }
 export interface RoomItf {
   bookings: Booking[];
@@ -25,4 +26,5 @@ export interface Booking {
   num_children: number;
   num_dogs: number;
   dates?: Date[];
+  created_at?: Date;
 }

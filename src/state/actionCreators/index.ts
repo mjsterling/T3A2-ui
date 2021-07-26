@@ -23,7 +23,9 @@ import { setBookingRef } from "./bookingRef";
 import { setBookingRequest, postBookingRequest } from "./bookingRequest";
 import getRooms from "./rooms";
 import { decDate, incDate, setDate } from "./roomCalendar";
-import { postBooking } from './adminBooking'
+import { postBooking } from "./adminBooking";
+import { getBookings } from "./bookings";
+import { getRequests } from "./requests";
 
 const actionCreators = {
   decDate,
@@ -51,6 +53,8 @@ const actionCreators = {
   postBookingRequest,
   getRooms,
   postBooking,
+  getBookings,
+  getRequests,
 };
 
 export default actionCreators;

@@ -32,9 +32,6 @@ export default function Room() {
   return (
     <>
       <Grid item>
-        <_.BackButton />
-      </Grid>
-      <Grid item>
         <Typography variant="h6" component="h1">
           Room {id}
         </Typography>

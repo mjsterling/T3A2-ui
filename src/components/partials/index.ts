@@ -8,12 +8,14 @@ import PaxIcons from "./PaxIcons";
 import RefInput from "./RefInput";
 import RoomCards from "./RoomCards/index";
 import TermsConditions from "./TermsConditions/index";
+import LiveSearch from "./LiveSearch";
 
 const _ = {
   Admin,
   BackButton,
   Booking,
   ImageCarousel,
+  LiveSearch,
   Logo,
   PageFooter,
   PaxIcons,
