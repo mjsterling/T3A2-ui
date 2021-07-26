@@ -25,10 +25,6 @@ export default function Book() {
   );
   const dispatch = useDispatch();
   const {
-    setFirstName,
-    setLastName,
-    setEmail,
-    setPhoneNumber,
     postBookingRequest,
   } = bindActionCreators(actionCreators, dispatch);
 
@@ -50,34 +46,8 @@ export default function Book() {
       <Grid item>
         <_.PaxSelector />
       </Grid>
-      <Grid container direction="column" spacing={1} alignItems="center">
-        <Grid item>
-          <TextField
-            label="First Name"
-            onChange={(e) => setFirstName(e.target.value)}
-            value={firstName}
-          />
-        </Grid>
-        <Grid item>
-          <TextField
-            label="Last Name"
-            onChange={(e) => setLastName(e.target.value)}
-            value={lastName}
-          />
-        </Grid>
-        <Grid item>
-          <TextField
-            label="Email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
-        </Grid>
-        <Grid item>
-          <TextField
-            label="Phone Number"
-            onChange={(e) => setPhoneNumber(e.target.value)}
-            value={phone}
-          />
+      <Grid item>
+        <_.BookingFormFields />
         </Grid>
         <Grid item>
           <_.TermsConditions />
@@ -109,6 +79,5 @@ export default function Book() {
           </Button>
         </Grid>
       </Grid>
-    </Grid>
   );
 }

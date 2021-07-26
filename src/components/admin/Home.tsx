@@ -63,7 +63,7 @@ export default function Home() {
 
   const RoomCards = () =>
     roomNumbers !== []
-      ? roomNumbers.map((n: number) => <_.RoomCard room_number={n} />)
+      ? roomNumbers.map((n: number, date: Date) => <_.RoomCard room_number={n} date={calendarDate}/>)
       : null;
 
   return (
