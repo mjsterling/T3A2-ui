@@ -5,7 +5,6 @@ const termsConditionsReducer = (
   action: Action
 ) => {
   const [type, key] = action.type.toLowerCase().split("_");
-  console.log(type, key);
   if (type === "accept") {
     return { ...state, [key]: !state[key] };
   } else {

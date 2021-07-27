@@ -34,7 +34,7 @@ export default function Track() {
           onClick: () => {
             axios
               .delete(
-                `https://eildonlakemotel-api.herokuapp.com/requests/${referenceNumber}`
+                `https://eildonlakemotel-api.herokuapp.com/requests/${reference_number}`
               )
               .then((res) => {
                 confirmAlert({
@@ -62,7 +62,6 @@ export default function Track() {
         Booking {reference_number}
       </Typography>
       <List>
-        <LI text={`Status: ${status}`} />
         <LI
           text={`Dates: ${dates && dates[0]} - ${
             dates && dates[dates.length - 1]

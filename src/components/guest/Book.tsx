@@ -14,8 +14,10 @@ export default function Book() {
   const { postBookingRequest } = bindActionCreators(actionCreators, dispatch);
   const validateRequest = () => {
     const values = Object.values(bookingRequest);
-    return !(values.includes("") || values.includes(null));
+    console.log(values);
+    return values.includes("") || values.includes(null);
   };
+  console.log(validateRequest());
   return (
     <>
       <Grid item>

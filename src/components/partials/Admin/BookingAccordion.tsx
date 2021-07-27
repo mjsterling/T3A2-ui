@@ -166,8 +166,7 @@ export default function BookingAccordion(props: {
                 onClick={() =>
                   axios
                     .delete(
-                      `https://
-eildonlakemotel.netlify.app/requests/${booking.id}`
+                      `https://eildonlakemotel-api.herokuapp.com/requests/${booking.id}`
                     )
                     .then(getRequests)
                 }

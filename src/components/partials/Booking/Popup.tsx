@@ -10,7 +10,7 @@ import moment from "moment";
 export default function Popup(props: {
   open: boolean;
   toggleOpen: Function;
-  roomNumber: number;
+  room_number: number;
   id?: number;
 }) {
   const bookingRequest = useSelector(
@@ -70,7 +70,7 @@ export default function Popup(props: {
             postBooking({
               ...bookingRequest,
               id: props.id || null,
-              roomNumber: props.roomNumber,
+              room_number: props.room_number,
             })
           }
           color="primary"

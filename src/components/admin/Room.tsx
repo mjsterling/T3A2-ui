@@ -90,7 +90,7 @@ export default function Room() {
       <_.Admin.RoomCalendar room={room} />
 
       <_.Booking.Popup
-        roomNumber={+id}
+        room_number={+id}
         open={showBookingPopup}
         toggleOpen={setShowBookingPopup}
       />
