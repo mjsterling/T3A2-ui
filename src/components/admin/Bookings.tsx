@@ -26,14 +26,17 @@ export default function Bookings() {
         <_.Admin.BookingAccordion booking={booking} />
       ));
   return (
-    <Grid container direction="column" alignItems="center" spacing={1}>
+    <>
+      <_.Navbar />
       <Grid item>
         <Typography variant="h6" component="h1">
           Booking History
         </Typography>
       </Grid>
       <_.LiveSearch value={searchQuery} onChange={setSearchQuery} />
-      <BookingComponents />
-    </Grid>
+      <Grid item container xs={12} spacing={1} direction="column">
+        <BookingComponents />
+      </Grid>
+    </>
   );
 }

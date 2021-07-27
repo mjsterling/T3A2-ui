@@ -2,7 +2,7 @@ import axios from "axios";
 import { BookingRequest } from "components/Interfaces";
 import { Dispatch } from "redux";
 import { confirmAlert } from "react-confirm-alert";
-import "react-confirm-alert/src/react-confirm-alert.css";
+import "components/react-confirm-alert.css";
 import moment from "moment";
 
 export const setBookingRequest = (payload: BookingRequest) => {

@@ -3,6 +3,7 @@ import BackButton from "./BackButton";
 import Booking from "./Booking/index";
 import ImageCarousel from "./ImageCarousel";
 import Logo from "./Logo";
+import Navbar from "./Navbar";
 import PageFooter from "./PageFooter";
 import PaxIcons from "./PaxIcons";
 import RefInput from "./RefInput";
@@ -17,6 +18,7 @@ const _ = {
   ImageCarousel,
   LiveSearch,
   Logo,
+  Navbar,
   PageFooter,
   PaxIcons,
   RefInput,

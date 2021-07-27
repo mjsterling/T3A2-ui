@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 });
 
 export default function Login() {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const [loginDetails, setLoginDetails] = useState({
     email: "",
@@ -92,11 +92,7 @@ export default function Login() {
         </Typography>
       </Grid>
       <Grid item xs>
-        {redAlert && (
-          <Typography variant="subtitle2" className={classes.redAlert}>
-            {redAlert}
-          </Typography>
-        )}
+        {redAlert && <Typography variant="subtitle2">{redAlert}</Typography>}
       </Grid>
       <form onSubmit={handleLogin}>
         <Grid container direction="column" spacing={2} alignItems="center">
@@ -108,7 +104,6 @@ export default function Login() {
               name="email"
               value={loginDetails.email}
               onChange={(e) => handleChange(e)}
-              className={classes.textField}
             />
           </Grid>
           <Grid item>
@@ -120,7 +115,6 @@ export default function Login() {
               name="password"
               value={loginDetails.password}
               onChange={(e) => handleChange(e)}
-              className={classes.textField}
             />
           </Grid>
           <Grid item>
@@ -132,7 +126,6 @@ export default function Login() {
               color="primary"
               endIcon={<Send />}
               type="submit"
-              className={classes.submitButton}
             >
               Log In
             </Button>

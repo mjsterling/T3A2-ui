@@ -1,4 +1,4 @@
-import { Grid, makeStyles } from "@material-ui/core";
+import { Grid, Hidden, makeStyles } from "@material-ui/core";
 import { Route } from "react-router-dom";
 import Guest from "./components/guest";
 import Admin from "./components/admin";
@@ -11,7 +11,8 @@ const useStyles = makeStyles({
     zIndex: -1,
     top: 0,
     left: 0,
-    height: "100vh",
+    minWidth: "100vw",
+    minHeight: "100vh",
     opacity: "0.24",
   },
 });
@@ -19,15 +20,21 @@ const useStyles = makeStyles({
 export default function App() {
   const classes = useStyles();
   return (
-    <>
+    <Grid container justify="center">
       <img
         className={classes.background}
         alt="background"
         src={images.elmPhotos[3]}
       />
       <_.BackButton />
-      <Grid container spacing={2} direction="column" alignItems="center">
-        <Grid item xs={12} md={4}>
+      <Grid
+        container
+        spacing={2}
+        direction="column"
+        alignItems="center"
+        style={{ maxWidth: "450px" }}
+      >
+        <Grid item xs={12} md={5}>
           <_.Logo />
         </Grid>
         <Grid
@@ -48,6 +55,6 @@ export default function App() {
           <Route path="/requests" component={Admin.Requests} />
         </Grid>
       </Grid>
-    </>
+    </Grid>
   );
 }

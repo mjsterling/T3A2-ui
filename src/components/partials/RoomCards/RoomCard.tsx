@@ -12,8 +12,8 @@ import clsx from "clsx";
 const useStyles = makeStyles({
   roomCard: {
     padding: "4%",
-    width: "36vw",
-    height: "20vh",
+    //   width: "36vw",
+    //   height: "20vh",
     borderRadius: "3vh",
     cursor: "pointer",
     transition: "0.5s",
@@ -54,7 +54,7 @@ export default function RoomCard(props: { number: number; date: Date }) {
     const dates = room.bookings.map((booking: Booking) => booking.dates!);
     const filteredDates = dates
       .flat()
-      .filter((date: Date) => moment(date).isAfter(moment()));
+      .filter((dt: Date) => moment(dt).isAfter(props.date, "day"));
     const sortedDates = filteredDates.sort((a: Date, b: Date) =>
       moment(a).isAfter(moment(b)) ? 1 : -1
     );
@@ -65,7 +65,7 @@ export default function RoomCard(props: { number: number; date: Date }) {
     return firstSortedDate;
   };
   return (
-    <Grid item>
+    <Grid item xs={5} md={4}>
       <Paper
         variant="outlined"
         elevation={3}

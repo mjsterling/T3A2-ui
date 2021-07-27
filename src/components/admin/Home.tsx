@@ -15,6 +15,7 @@ export default function Home() {
 
   return (
     <>
+      <_.Navbar />
       <_.Admin.DateSelector />
       <_.RoomCards roomNumbers={roomNumbers} />
     </>

@@ -1,19 +1,24 @@
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import { BookingRequest } from "components/Interfaces";
 import _ from "components/partials";
 import moment from "moment";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import actionCreators from "state/actionCreators";
 import { RootState } from "state/reducers";
 
 export default function Requests() {
+  const history = useHistory();
   const [searchQuery, setSearchQuery] = useState("");
   const requests = useSelector((state: RootState) => state.requests);
   const dispatch = useDispatch();
   const { getRequests } = bindActionCreators(actionCreators, dispatch);
-  if (!requests.length) getRequests();
+  if (!localStorage.getItem("jwt")) history.push("/login");
+  if (!requests) getRequests();
+  if (!requests) return null;
+
   const RequestComponents = () =>
     requests
       .filter((request: BookingRequest) =>
@@ -27,9 +32,17 @@ export default function Requests() {
       ));
 
   return (
-    <Grid container direction="column" alignItems="center" spacing={1}>
+    <>
+      <_.Navbar />
+      <Grid item>
+        <Typography variant="h6" component="h1">
+          Active Requests
+        </Typography>
+      </Grid>
       <_.LiveSearch value={searchQuery} onChange={setSearchQuery} />
-      <RequestComponents />
-    </Grid>
+      <Grid item container xs={12} spacing={1} direction="column">
+        <RequestComponents />
+      </Grid>
+    </>
   );
 }

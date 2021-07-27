@@ -12,7 +12,6 @@ import { RootState } from "state/reducers";
 const useStyles = makeStyles({
   datePicker: {
     textAlign: "center",
-    fontSize: "1.2rem",
   },
 });
 export default function DateSelector() {
@@ -37,7 +36,7 @@ export default function DateSelector() {
           <ArrowBack />
         </IconButton>
       </Grid>
-      <Grid item xs={5}>
+      <Grid item xs={6}>
         <MuiPickersUtilsProvider utils={MomentUtils}>
           <DatePicker
             size="small"

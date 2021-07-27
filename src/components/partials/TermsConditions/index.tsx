@@ -17,7 +17,8 @@ const useStyles = makeStyles({
   paper: {
     backgroundColor: "transparent",
     height: "20vh",
-    overflow: "scroll",
+    overflowY: "scroll",
+    overflowX: "hidden",
     padding: "5%",
   },
 });

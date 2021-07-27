@@ -13,7 +13,9 @@ export default function RoomCards(props: { roomNumbers: number[] }) {
       xs={12}
       direction="row"
       justifyContent="space-around"
+      spacing={1}
       alignItems="center"
+      alignContent="space-around"
     >
       {props.roomNumbers.map((n: number) => (
         <RoomCard number={n} date={calendarDate} />
