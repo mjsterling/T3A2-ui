@@ -16,9 +16,12 @@ export const postBookingRequest = (payload: BookingRequest) => {
     console.log(payload);
     if (payload.reference_number) {
       axios
-        .patch(`http://localhost:3000/requests/${payload.reference_number}`, {
-          request: payload,
-        })
+        .patch(
+          `https://eildonlakemotel-api.herokuapp.com/requests/${payload.reference_number}`,
+          {
+            request: payload,
+          }
+        )
         .then((res) => {
           if (res.status === 204) {
             confirmAlert({
@@ -28,7 +31,8 @@ export const postBookingRequest = (payload: BookingRequest) => {
                 {
                   label: "OK",
                   onClick: () =>
-                    (window.location.href = "http://localhost:3001/track"),
+                    (window.location.href =
+                      "https://eildonlakemotel.netlify.app/track"),
                 },
               ],
             });
@@ -44,7 +48,9 @@ export const postBookingRequest = (payload: BookingRequest) => {
         payload.dates.push(moment(payload.checkIn).add(i, "day").toDate());
       }
       axios
-        .post(`http://localhost:3000/requests`, { request: payload })
+        .post(`https://eildonlakemotel-api.herokuapp.com/requests`, {
+          request: payload,
+        })
         .then((res) => {
           if (res.status === 201 && res.data.reference_number) {
             dispatch({
@@ -58,7 +64,8 @@ export const postBookingRequest = (payload: BookingRequest) => {
                 {
                   label: "OK",
                   onClick: () =>
-                    (window.location.href = "http://localhost:3001/"),
+                    (window.location.href =
+                      "https://eildonlakemotel.netlify.app/"),
                 },
               ],
             });

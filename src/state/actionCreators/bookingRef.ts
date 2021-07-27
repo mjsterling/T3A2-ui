@@ -1,4 +1,3 @@
-import axios from "axios";
 import { Dispatch } from "redux";
 
 export const setBookingRef = (payload: string) => {

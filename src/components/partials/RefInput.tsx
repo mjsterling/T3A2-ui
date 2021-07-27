@@ -1,5 +1,4 @@
-import { Grid, TextField, InputAdornment, IconButton } from "@material-ui/core";
-import { Send } from "@material-ui/icons";
+import { Grid, TextField } from "@material-ui/core";
 import axios from "axios";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,7 +22,9 @@ export default function RefInput() {
     setInputError(false);
     if (value.length >= 6) {
       axios
-        .get(`http://localhost:3000/requests/${value.toUpperCase()}`)
+        .get(
+          `https://eildonlakemotel-api.herokuapp.com/requests/${value.toUpperCase()}`
+        )
         .then((res) => {
           console.log(res.data);
           setBookingRequest(res.data);

@@ -165,7 +165,10 @@ export default function BookingAccordion(props: {
                 color="secondary"
                 onClick={() =>
                   axios
-                    .delete(`http:/localhost:3000/requests/${booking.id}`)
+                    .delete(
+                      `https://
+eildonlakemotel.netlify.app/requests/${booking.id}`
+                    )
                     .then(getRequests)
                 }
               >

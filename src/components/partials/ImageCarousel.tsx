@@ -73,10 +73,7 @@ export default function ImageCarousel(props: Props) {
     setCurrentIndex(currentIndex === 0 ? slides.length - 1 : currentIndex - 1);
   }
 
-  const intervalId = useInterval(
-    nextImage,
-    autoplay ? props.interval || null : null
-  );
+  useInterval(nextImage, autoplay ? props.interval || null : null);
 
   return (
     <Grid container item xs={12} justify="space-around" alignItems="center">

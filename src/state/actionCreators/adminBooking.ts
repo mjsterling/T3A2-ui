@@ -9,9 +9,12 @@ export const postBooking = (payload: any, bookingFromReq?: true) => {
 
     if (payload.id && !bookingFromReq) {
       axios
-        .patch(`http://localhost:3000/bookings/${payload.id}`, {
-          booking: payload,
-        })
+        .patch(
+          `https://eildonlakemotel-api.herokuapp.com/bookings/${payload.id}`,
+          {
+            booking: payload,
+          }
+        )
         .then((res) => {
           if (res.status === 204) {
             confirmAlert({
@@ -37,7 +40,7 @@ export const postBooking = (payload: any, bookingFromReq?: true) => {
       }
       axios
         .post(
-          `http://localhost:3000/bookings`,
+          `https://eildonlakemotel-api.herokuapp.com/bookings`,
           { booking: payload },
           {
             headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
@@ -51,16 +54,21 @@ export const postBooking = (payload: any, bookingFromReq?: true) => {
               {
                 label: "OK",
                 onClick: () =>
-                  (window.location.href = "http://localhost:3001/room/1"),
+                  (window.location.href =
+                    "https://eildonlakemotel.netlify.app/room/1"),
               },
             ],
           });
           if (bookingFromReq) {
-            axios.delete(`http:/localhost:3000/requests/${payload.id}`, {
-              headers: {
-                Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-              },
-            });
+            axios.delete(
+              `https://
+eildonlakemotel.netlify.app/requests/${payload.id}`,
+              {
+                headers: {
+                  Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+                },
+              }
+            );
           }
         })
         .catch(() => {

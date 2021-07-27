@@ -1,4 +1,4 @@
-import { Grid, Hidden, makeStyles } from "@material-ui/core";
+import { Grid, makeStyles } from "@material-ui/core";
 import { Route } from "react-router-dom";
 import Guest from "./components/guest";
 import Admin from "./components/admin";
@@ -32,7 +32,7 @@ export default function App() {
         spacing={2}
         direction="column"
         alignItems="center"
-        style={{ maxWidth: "450px" }}
+        style={{ maxWidth: "480px" }}
       >
         <Grid item xs={12} md={5}>
           <_.Logo />

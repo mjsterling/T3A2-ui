@@ -4,7 +4,7 @@ import { Dispatch } from "react";
 export const getBookings = () => {
   return (dispatch: Dispatch<any>) => {
     axios
-      .get("http://localhost:3000/bookings", {
+      .get("https://eildonlakemotel-api.herokuapp.com/bookings", {
         headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
       })
       .then((res: any) => {

@@ -1,4 +1,3 @@
-import axios from "axios";
 import ReduxAction from "./ReduxAction";
 
 const reducer = (state = [], action: ReduxAction) => {

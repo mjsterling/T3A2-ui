@@ -5,7 +5,7 @@ const getRooms = () => {
   return (dispatch: Dispatch<any>) => {
     console.log("make request");
     axios
-      .get("http://localhost:3000/rooms", {
+      .get("https://eildonlakemotel-api.herokuapp.com/rooms", {
         headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
       })
       .then((res) => {

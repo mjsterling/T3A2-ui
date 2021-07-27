@@ -5,7 +5,7 @@ import { bindActionCreators } from "redux";
 import actionCreators from "state/actionCreators";
 
 export default function FormFields() {
-  const { firstName, lastName, email, phone } = useSelector(
+  const { first_name, last_name, email_address, phone_number } = useSelector(
     (state: RootState) => state.bookingRequest
   );
   const dispatch = useDispatch();
@@ -17,28 +17,28 @@ export default function FormFields() {
         <TextField
           label="First Name"
           onChange={(e) => setFirstName(e.target.value)}
-          value={firstName}
+          value={first_name}
         />
       </Grid>
       <Grid item>
         <TextField
           label="Last Name"
           onChange={(e) => setLastName(e.target.value)}
-          value={lastName}
+          value={last_name}
         />
       </Grid>
       <Grid item>
         <TextField
           label="Email"
           onChange={(e) => setEmail(e.target.value)}
-          value={email}
+          value={email_address}
         />
       </Grid>
       <Grid item>
         <TextField
           label="Phone Number"
           onChange={(e) => setPhoneNumber(e.target.value)}
-          value={phone}
+          value={phone_number}
         />
       </Grid>
     </Grid>

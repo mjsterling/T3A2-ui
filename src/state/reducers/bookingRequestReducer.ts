@@ -53,7 +53,7 @@ const reducer = (
         ...state,
         last_name: last_name,
       };
-    case "SET_EMAIL_address":
+    case "SET_EMAIL_ADDRESS":
       let email_address = action.payload
         .match(/\w*@*\.*/g)
         .join("")
@@ -63,7 +63,7 @@ const reducer = (
         email_address: email_address,
       };
 
-    case "SET_PHONE_number":
+    case "SET_PHONE_NUMBER":
       let phone_number = action.payload.match(/\d*\+*/g).join("");
 
       return {
@@ -92,7 +92,7 @@ const reducer = (
         num_dogs: state.num_dogs === 0 ? 0 : state.num_dogs - 1,
       };
     case "SET_REFERENCE_NUMBER":
-      return { ...state, referenceNumber: action.payload };
+      return { ...state, reference_number: action.payload };
     case "SET_BOOKING_REQUEST":
       return action.payload;
     default:

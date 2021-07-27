@@ -1,29 +1,10 @@
-import { Button, Grid, makeStyles, Typography } from "@material-ui/core";
+import { Button, Grid, Typography } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import { Send } from "@material-ui/icons";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-const useStyles = makeStyles({
-  redAlert: {
-    color: "red",
-    fontWeight: "bold",
-  },
-  textField: {
-    width: "50vw",
-
-    "& label": {
-      textAlign: "center",
-    },
-  },
-  submitButton: {
-    width: "30vw",
-  },
-});
-
 export default function Login() {
-  // const classes = useStyles();
-
   const [loginDetails, setLoginDetails] = useState({
     email: "",
     password: "",
@@ -49,7 +30,7 @@ export default function Login() {
   const loginRequest = async () => {
     axios({
       method: "post",
-      url: `http://localhost:3000/login`,
+      url: `https://eildonlakemotel-api.herokuapp.com/login`,
       headers: {
         "Content-Type": "application/json",
       },

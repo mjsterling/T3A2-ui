@@ -1,10 +1,4 @@
-import {
-  Button,
-  Grid,
-  ListItem,
-  ListItemText,
-  Typography,
-} from "@material-ui/core";
+import { Button, ListItem, ListItemText, Typography } from "@material-ui/core";
 import { List } from "@material-ui/core";
 import _ from "components/partials";
 import { confirmAlert } from "react-confirm-alert";
@@ -17,19 +11,18 @@ import axios from "axios";
 export default function Track() {
   const history = useHistory();
   const {
-    firstName,
-    lastName,
-    email,
-    phone,
+    first_name,
+    last_name,
+    email_address,
+    phone_number,
     num_adults,
     num_children,
     num_dogs,
     dates,
-    referenceNumber,
-    status,
+    reference_number,
   } = useSelector((state: RootState) => state.bookingRequest);
 
-  if (!referenceNumber) history.push("/");
+  if (!reference_number) history.push("/");
 
   const cancelConfirmation = () =>
     confirmAlert({
@@ -40,7 +33,9 @@ export default function Track() {
           label: "Yes",
           onClick: () => {
             axios
-              .delete(`http://localhost:3000/requests/${referenceNumber}`)
+              .delete(
+                `https://eildonlakemotel-api.herokuapp.com/requests/${referenceNumber}`
+              )
               .then((res) => {
                 confirmAlert({
                   title: "Sorry to see you go.",
@@ -64,7 +59,7 @@ export default function Track() {
   return (
     <>
       <Typography variant="h6" component="h2">
-        Booking {referenceNumber}
+        Booking {reference_number}
       </Typography>
       <List>
         <LI text={`Status: ${status}`} />
@@ -73,9 +68,9 @@ export default function Track() {
             dates && dates[dates.length - 1]
           }`}
         />
-        <LI text={`Name: ${firstName} ${lastName}`} />
-        <LI text={`Email: ${email}`} />
-        <LI text={`Phone: ${phone}`} />
+        <LI text={`Name: ${first_name} ${last_name}`} />
+        <LI text={`Email: ${email_address}`} />
+        <LI text={`Phone: ${phone_number}`} />
         <LI text={"Guests: "} />
         <_.PaxIcons
           adults={num_adults}

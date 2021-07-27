@@ -12,12 +12,12 @@ export const setLastName = (payload: string) => {
 };
 export const setEmail = (payload: string) => {
   return (dispatch: Dispatch<any>) => {
-    dispatch({ type: "SET_EMAIL", payload: payload });
+    dispatch({ type: "SET_EMAIL_ADDRESS", payload: payload });
   };
 };
 export const setPhoneNumber = (payload: string) => {
   return (dispatch: Dispatch<any>) => {
-    dispatch({ type: "SET_PHONE", payload: payload });
+    dispatch({ type: "SET_PHONE_NUMBER", payload: payload });
   };
 };
 export const setReferenceNumber = (payload: string) => {
