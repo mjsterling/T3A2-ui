@@ -15,4 +15,27 @@ describe('login', ()=>{
     it('should make a request when you press login', ()=>{
         cy.get('button').eq(1).click()
     })
+
+    it('should show an error if you input incorrect details', () => {
+        cy.contains('Invalid username or password')
+    })
+})
+
+describe('login request', () => {
+    it('should return a token from a request with correct login details', () => {
+        cy.request({
+            method: "post",
+            url: `http://localhost:3000/login`,
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: {
+              email: 'dburgan@live.com',
+              password: 'burgand98'
+            }
+        })
+        .then((response)=>{
+            expect(response.body).have.property('token')
+        })
+    })
 })
